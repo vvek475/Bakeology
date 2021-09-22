@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% block content %}
+{%  load static %}
+
+
+<header id="navigation" class="navbar-fixed-top animated-header">
+	<div class="container">
+		<div class="navbar-header">
+			<!-- responsive nav button -->
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<!-- /responsive nav button -->
+			
+			<!-- logo -->
+			<h1 class="navbar-brand">
+				<a href="#body"><img src="{% static 'img\clientLogo\client-logo1.jpg'%}" height="40" width="164" alt=""></a>
+			</h1>
+			<!-- /logo -->
+		</div>
+
+		<!-- main nav -->
+		<nav class="collapse navbar-collapse navbar-right" role="navigation">
+			<ul id="nav" class="nav navbar-nav menu">
+				<li><a href="{% url 'home' %}">Home</a></li>
+				<li><a href="{% url 'menu' %}">Menu</a></li>
+				<li><a href="{% url 'placeorder'%}">Order</a></li>
+				<li><a href="#bill_box">Bill</a></li>
+				<li><a href="{% url 'home' %}">Contact</a></li>
+			</ul>
+		</nav>
+		<!-- /main nav -->
+		
+	</div>
+</header>
+<div class="wrapper">
+	<section id="banner">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="block">
+						<h1>Clean and Tastiest Cakes</h1>
+						<h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <br> tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</h2>
+						<div class="buttons">
+							<a href="{% url 'placeorder'%}" class="btn btn-learn">Place Order</a>
+							<a href="{% url 'menu' %}" class="btn btn-learn">View Cakes</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="scrolldown">
+			<a id="scroll" href="#contact-form" class="scroll"></a>
+		</div>
+	</section>
+	<section id="counter">
+		<div class="container">
+			<div class="row">
+				<div class="title">
+					<h2>Our Services so far</h2>
+					<p>Dantes remained confused and silent by this explanation of the <br> thoughts which had unconsciously</p>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-6">
+					<div class="block wow fadeInRight" data-wow-delay=".3s">
+						<i class="ion-code"></i>
+						<p class="count-text">
+							<span class="counter-digit">100+ </span> 
+						</p>
+						<p>Customers</p>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-6">
+					<div class="block wow fadeInRight" data-wow-delay=".5s">
+						<i class="ion-compass"></i>
+						<p class="count-text">
+							<span class="counter-digit">150+ </span> 
+						</p>
+						<p>Cakes Delivered</p>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-6">
+					<div class="block wow fadeInRight" data-wow-delay=".7s">
+						<i class="ion-compose"></i>
+						<p class="count-text">
+							<span class="counter-digit">25+</span>
+						</p>
+						<p>Special Occasions</p>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-6">
+					<div class="block wow fadeInRight" data-wow-delay=".9s">
+						<i class="ion-image"></i>
+						<p class="count-text">
+							<span class="counter-digit">120+</span>
+						</p>
+						<p>Happy Memories</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+<div class="bill_box" id='bill_box'>
+	<div>{%for  cake in Cake%}
+			<img style='padding:80px;height:580px;' class='bill_pic' src="{{cake.cake_pic.url}}" alt="no" >
+		{% endfor%}
+	<hr>
+	<div style="padding:80px">
+		
+		<p class='bill'>Name : {{order.name}}</p><br>
+		<p class="bill" >Email : {{order.email}} / Mobile: {{order.mob_number}}</p>
+		<hr><br><p class="bill" >Cake : <span class="bill_cost">{{order.cake_name}}</span></p>
+		<p class="bill" >Size : <span class="bill_cost">{{order.size}}</span></p>
+		<p class="bill" >Toppins : <span class="bill_cost">{{order.toppins}}</span></p>
+		<p class="bill" >Message : <span class="bill_cost">{{order.message}}</span></p><br><hr>
+		<p class="bill" >Additionals : <br><span style="padding: 50px;">{{order.additionals}}</span></p><br><hr>
+		<p class="bill" >Cost :<span class='bill_cost' id='cost' >Rs. {{cost}}</span></p><hr>
+		<button class="confirm_order">CONFIRM ORDER</button>
+</div>
+</div></div>
+
+
+{% endblock %}
