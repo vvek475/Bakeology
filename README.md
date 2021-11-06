@@ -1,4 +1,4 @@
-<h3>Bakeology</h3> Bakeology is a bakery website that allows to order cake. This is competely built on elements like Django message framework
+<h3>Bakeology</h3> Bakeology is a bakery website that allows to order cake. This is competely built on Django message framework, Django MVT
 and Django Templates Languages.
 <br><br>
 <h2>Features :</h2>
