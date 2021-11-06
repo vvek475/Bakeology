@@ -11,7 +11,7 @@ Can order cake, Add feedback that's visible on home, One time message for confir
 3. Run cmd pip install requirement
 4. Run cmd py manage.py runserver
 <br><br><br><br>
-<img src="https://github.com/vvek475/Bakeology/blob/main/SC/Categories.jpg" >
+https://github.com/vvek475/Bakeology/blob/main/SC/Categories.jpg
 <h2>Tour :</h2>
 1. On open toggle through sections in homepage using navbar.<br>
 2. Click on place order in hero section to take to ordering page.<br>
