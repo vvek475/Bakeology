@@ -4,7 +4,7 @@ and Django Templates Languages.
 <h2>Features :</h2>
 Can order cake, Add feedback that's visible on home, One time message for confirmation.
 <br><br><br><br>
-<img src='https://github.com/vvek475/Bakeology/blob/main/SC/Hero.jpg'>Bakeology
+<img src='https://github.com/vvek475/Bakeology/blob/main/SC/Hero.jpg'>
 <h2>Before start:</h2>
 1. Clone the repository 
 2. Install a venv of your interest and activate virtual environment
@@ -12,7 +12,8 @@ Can order cake, Add feedback that's visible on home, One time message for confir
 4. Run cmd py manage.py runserver
 <br><br><br><br>
 <img src='https://github.com/vvek475/Bakeology/blob/main/SC/Categories.jpg'>
-<img src='https://github.com/vvek475/Bakeology/blob/main/SC/Categories.jpg'>
+<br><br>
+<img src='https://github.com/vvek475/Bakeology/blob/main/SC/Feedback.jpg'>
 <h2>Tour :</h2>
 1. On open toggle through sections in homepage using navbar.<br>
 2. Click on place order in hero section to take to ordering page.<br>
