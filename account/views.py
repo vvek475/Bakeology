@@ -1,24 +1,29 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
-from cakespecs.models import cakespecs
+from cakespecs.models import Orders
 from category.models import category
 from cake.models import Cake
 from posts.models import posts
 from datetime import datetime
+from review.models import review as Review
+from django.contrib import messages
+
 # Create your views here.
 def home(request):
     Categories=category.objects.all().order_by('-id')
     post=posts.objects.all()
-    cake=Cake.objects.all()
+    cake=Cake.objects.all()[:6]
+    reviews=Review.objects.all().order_by('-id')[:4]
     return render(request,'home.html',{
         'Categories':Categories,
         'posts':post,
-        'cakes':cake
+        'cakes':cake,
+        'reviews':reviews,
         })
 
 def review(request):
-    Categories=category.objects.all().order_by('-id')
-    return render(request,'review.html',{'Categories':Categories})
+    cake=Cake.objects.all()
+    return render(request,'review.html',{'cakes':cake})
 
 def placeorder(request):
     cake=Cake.objects.all()
@@ -32,7 +37,7 @@ def menu(request):
 
 def Check_order(request):
     if request.method=='POST':
-        order=cakespecs.objects.create(
+        order=Orders.objects.create(
             name= request.POST['name'],
             cake_name=request.POST['cake'],
             size=request.POST['size'],
@@ -47,15 +52,36 @@ def Check_order(request):
         cakes=Cake.objects.filter(name=order.cake_name)
         for cake in cakes:
             size_=order.size
-            print(size_)
             cost=cake.cost
             cost=int(cost[4:8])
             if size_=='Medium':
                 cost=cost*2
             elif size_=='Large':
                 cost=cost*3
-        print(cost)
+                
         return render(request,'checkorder.html',{'order':order,'Cake':cakes,'cost':cost})
 
-    else:
-        return HttpResponse(str('wrongone'))
+
+def orderPlaced(request):
+    messages.error( request,'Thanks for the Ordering')
+    return redirect('home')
+
+
+def reviewPosted(request):
+    if request.method=="POST":
+        print(request.POST.get('cake_id'))
+        Review.objects.create(
+            cake_id=request.POST.get('cake_id'),
+            name=request.POST['name'],
+            email=request.POST['email'],
+            mobile=request.POST['mobile'],
+            message=request.POST['message'],
+            date=datetime.now(),
+            pic=request.FILES.get('pic'),
+        )
+        messages.error( request,'Thanks for the Feedback')
+        Categories=category.objects.all().order_by('-id')
+        post=posts.objects.all()
+        cake=Cake.objects.all()[:6]
+        reviews=Review.objects.all().order_by('-id')[:4]
+        return redirect('home')

@@ -118,7 +118,7 @@
 		<p class="bill" >Message : <span class="bill_cost">{{order.message}}</span></p><br><hr>
 		<p class="bill" >Additionals : <br><span style="padding: 50px;">{{order.additionals}}</span></p><br><hr>
 		<p class="bill" >Cost :<span class='bill_cost' id='cost' >Rs. {{cost}}</span></p><hr>
-		<button class="confirm_order">CONFIRM ORDER</button>
+		<button class="confirm_order"><a href="{% url 'orderPlaced' %}" style="color: white;">CONFIRM ORDER</a></button>
 </div>
 </div></div>
 

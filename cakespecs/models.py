@@ -2,7 +2,7 @@ from django.db import models
 
 from cake.models import Cake
 
-class cakespecs(models.Model):
+class Orders(models.Model):
     name=models.CharField(max_length=255)
     cake_name=models.CharField(max_length=100,default='Call')
     size=models.CharField(max_length=100)
