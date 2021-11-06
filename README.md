@@ -4,7 +4,7 @@ and Django Templates Languages.
 <h2>Features :</h2>
 Can order cake, Add feedback that's visible on home, One time message for confirmation.
 <br><br><br><br>
-<img src='https://github.com/vvek475/Bakeology/blob/main/SC/Categories.jpg'>
+<img src='https://github.com/vvek475/Bakeology/blob/main/SC/Hero.jpg'>Bakeology
 <h2>Before start:</h2>
 1. Clone the repository 
 2. Install a venv of your interest and activate virtual environment
